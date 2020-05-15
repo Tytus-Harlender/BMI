@@ -5,7 +5,7 @@ using System.Text;
 
 namespace priv_BMI_zpliku
 {
-    class FileGenerator
+    public class FileGenerator
     {
         public static void GenerateTheFile(UserTemplate user)
         {
