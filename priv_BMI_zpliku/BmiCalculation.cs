@@ -119,7 +119,7 @@ namespace priv_BMI_zpliku
 
 
             Console.WriteLine($"Twój wskaźnik BMI wynosi: {user.Bmi} ");
-            Console.WriteLine($"{user.ShowInformation()}");
+            Console.WriteLine($"{user.Evaluation}");
             Console.WriteLine("Źródło : https://pl.wikipedia.org/wiki/Wska%C5%BAnik_masy_cia%C5%82a");
 
             FileGenerator.GenerateTheFile(user);
@@ -174,7 +174,7 @@ namespace priv_BMI_zpliku
 
 
             Console.WriteLine($"Twój wskaźnik BMI wynosi: {user.Bmi} ");
-            Console.WriteLine($"{user.ShowInformation()}");
+            Console.WriteLine($"{user.Evaluation}");
             Console.WriteLine("Źródło : https://pl.wikipedia.org/wiki/Wska%C5%BAnik_masy_cia%C5%82a");
 
             
