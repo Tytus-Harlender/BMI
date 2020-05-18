@@ -33,7 +33,7 @@ namespace priv_BMI_zpliku
             }
             else
             {
-                Console.WriteLine("Brak poprawnie wpisanych wartości w wierszu poleceń");
+                Console.WriteLine(SharedResources.IncorrectValuesInArgs);
 
                 int answer = GetUserAnswerOfCalculationMethod();
 
@@ -57,13 +57,12 @@ namespace priv_BMI_zpliku
 
             do
             {
-                Console.WriteLine(
-                    "Proszę wybrać sposób pobrania danych: wpisz 1 jeżeli chcesz wprowadzić dane ręcznie lub 2 jeżeli chcesz je wczytać z pliku 'PoliczMojeBmi.txt' ");
+                Console.WriteLine(SharedResources.ChoiceOfDataSource);
 
                 Int32.TryParse(Console.ReadLine(), out int result);
 
                 if (result != 1 && result != 2)
-                    Console.WriteLine("Proszę wpisać cyfrę 1 lub 2!");
+                    Console.WriteLine(SharedResources.WrongAnswerFormatOne);
                 else
                     answer = result;
             } while (answer == 0);
@@ -84,16 +83,14 @@ namespace priv_BMI_zpliku
             UserTemplate user = new UserTemplate();
             double number;
 
-            Console.WriteLine(
-                "Cześć! Wpisz, proszę poniższe wartości. Pamiętaj, żeby używać przecinka zamiast kropki :)");
+            Console.WriteLine(SharedResources.ExpectationOfConsoleDataSource);
 
             do
             {
-                Console.WriteLine(
-                    "Określ płeć. Wpisz 1 jeżeli jesteś mężczyzną lub 2 jeżeli jesteś kobietą i zatwierdź klawiszem Enter");
+                Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceSexAssignment);
                 Double.TryParse(Console.ReadLine(), out number);
                 if (number != 1 & number != 2)
-                    Console.WriteLine("Proszę wpisać cyfrę 1 lub 2!");
+                    Console.WriteLine(SharedResources.WrongAnswerFormatOne);
                 else
                     user.Sex = number;
             } while (user.Sex == 0);
@@ -101,10 +98,10 @@ namespace priv_BMI_zpliku
 
             do
             {
-                Console.WriteLine("Proszę podać wagę w kilogramach [kg] i zatwierdzić klawiszem Enter");
+                Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceWeightAssignment);
                 Double.TryParse(Console.ReadLine(), out number);
                 if (number <= 0)
-                    Console.WriteLine("Proszę wpisać wartość dodatnią i stosować ',' zamiast '.'!");
+                    Console.WriteLine(SharedResources.WrongAnswerFormatTwo);
                 else
                     user.Weight = number;
             } while (user.Weight == 0);
@@ -112,18 +109,13 @@ namespace priv_BMI_zpliku
 
             do
             {
-                Console.WriteLine("Proszę podać wzrost w metrach [m] i zatwierdzić klawiszem Enter");
+                Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceHeightAssignment);
                 Double.TryParse(Console.ReadLine(), out number);
                 if (!(number > 0))
-                    Console.WriteLine("Proszę wpisać wartość dodatnią i stosować ',' zamiast '.'!");
+                    Console.WriteLine(SharedResources.WrongAnswerFormatTwo);
                 else
                     user.Height = number;
             } while (user.Height == 0);
-
-
-
-
-
 
 
             Console.WriteLine($"Twój wskaźnik BMI wynosi: {user.Bmi} ");
@@ -131,8 +123,6 @@ namespace priv_BMI_zpliku
             Console.WriteLine("Źródło : https://pl.wikipedia.org/wiki/Wska%C5%BAnik_masy_cia%C5%82a");
 
             FileGenerator.GenerateTheFile(user);
-
-
 
         }
 
@@ -144,7 +134,7 @@ namespace priv_BMI_zpliku
 
             if (lines.Length < 4)
             {
-                Console.WriteLine("Nie udało się wczytać pliku - sprawdź poprawność formatu lub uzupełnij dane!");
+                Console.WriteLine(SharedResources.WrongAnswerFormatThree);
                 return;
             }
 
@@ -155,7 +145,7 @@ namespace priv_BMI_zpliku
             if (result1 == 0 || result2 == 0 || result3 == 0)
             {
 
-                Console.WriteLine("Nie udało się wczytać pliku - sprawdź poprawność formatu lub uzupełnij dane!");
+                Console.WriteLine(SharedResources.WrongAnswerFormatThree);
                 return;
             }
 
