@@ -1,28 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.Mime;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Text;
-
 
 namespace priv_BMI_zpliku
 {
-    // nazwa klasy informuje o funkcjonalności, interface to nazwa zastrzeżona
-    // ctrl + k i ctrl+u - komentowanie
-    // ctr + r ctrl +r - nazwa klasy/metody/zmiennej/prop
-    // ctrl + shift +s - zapisz wszystkie pliki
-    // ctrl + . - proponowane naprawienie problemu
-    // F5 - star debugera
-    // shift + F5 zatrzymaj debuggera
-    // ctrl+ shit + a dodaj nowy plik
-
-
-
     public class BmiCalculation
     {
-        //nazwy metod bez dużej litery I na poczatku - uważać na sugestywność nazw!
-
         public void ChooseTheSource(string[] args)
         {
 
@@ -46,9 +27,6 @@ namespace priv_BMI_zpliku
                     CalculateFromFile();
                 }
             }
-
-
-
         }
 
         private int GetUserAnswerOfCalculationMethod()
@@ -118,11 +96,8 @@ namespace priv_BMI_zpliku
             } while (user.Height == 0);
 
 
-            Console.WriteLine($"Twój wskaźnik BMI wynosi: {user.Bmi} ");
-            Console.WriteLine($"{user.Evaluation}");
-            Console.WriteLine("Źródło : https://pl.wikipedia.org/wiki/Wska%C5%BAnik_masy_cia%C5%82a");
-
-            FileGenerator.GenerateTheFile(user);
+            BmiResultGenerator.PrintBmiResult(user);
+            BmiResultGenerator.SaveBmiResultToFile(user);
 
         }
 
@@ -150,11 +125,8 @@ namespace priv_BMI_zpliku
             }
 
 
-            user.Sex = Convert.ToDouble(lines[1]);
-            user.Weight = Convert.ToDouble(lines[3]);
-            user.Height = Convert.ToDouble(lines[2]);
-
-            FileGenerator.GenerateTheFile(user);
+            BmiResultGenerator.PrintBmiResult(user);
+            BmiResultGenerator.SaveBmiResultToFile(user);
 
         }
 
@@ -172,14 +144,8 @@ namespace priv_BMI_zpliku
             user.Height = Convert.ToDouble(args[1]);
 
 
-
-            Console.WriteLine($"Twój wskaźnik BMI wynosi: {user.Bmi} ");
-            Console.WriteLine($"{user.Evaluation}");
-            Console.WriteLine("Źródło : https://pl.wikipedia.org/wiki/Wska%C5%BAnik_masy_cia%C5%82a");
-
-            
-
-
+            BmiResultGenerator.PrintBmiResult(user);
+            BmiResultGenerator.SaveBmiResultToFile(user);
 
         }
     }
