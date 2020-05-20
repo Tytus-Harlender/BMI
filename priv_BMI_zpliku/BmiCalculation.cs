@@ -50,7 +50,7 @@ namespace priv_BMI_zpliku
 
         private bool ValidateIfCommandArgsAreCorrect(string[] args)
         {
-            return Validator.DoesItContainsThreeArguments(args) && 
+            return Validator.DoesItContainsThreeArguments(args) &&
                    Validator.DoesFirstParamIsManOrWoman(args) &&
                    Validator.DoesThisParamContainsDoubleValue(args[1]) &&
                    Validator.DoesThisParamContainsDoubleValue(args[2]);
@@ -59,42 +59,12 @@ namespace priv_BMI_zpliku
         public void CalculateFromConsole()
         {
             UserTemplate user = new UserTemplate();
-            double number;
 
             Console.WriteLine(SharedResources.ExpectationOfConsoleDataSource);
 
-            do
-            {
-                Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceSexAssignment);
-                Double.TryParse(Console.ReadLine(), out number);
-                if (number != 1 & number != 2)
-                    Console.WriteLine(SharedResources.WrongAnswerFormatOne);
-                else
-                    user.Sex = number;
-            } while (user.Sex == 0);
-
-
-            do
-            {
-                Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceWeightAssignment);
-                Double.TryParse(Console.ReadLine(), out number);
-                if (number <= 0)
-                    Console.WriteLine(SharedResources.WrongAnswerFormatTwo);
-                else
-                    user.Weight = number;
-            } while (user.Weight == 0);
-
-
-            do
-            {
-                Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceHeightAssignment);
-                Double.TryParse(Console.ReadLine(), out number);
-                if (!(number > 0))
-                    Console.WriteLine(SharedResources.WrongAnswerFormatTwo);
-                else
-                    user.Height = number;
-            } while (user.Height == 0);
-
+            AssignTheSexFromConsole(user);
+            AssignTheWeightFromConsole(user);
+            AssignTheHeightFromConsole(user);
 
             BmiResultGenerator.PrintBmiResult(user);
             BmiResultGenerator.SaveBmiResultToFile(user);
@@ -148,5 +118,53 @@ namespace priv_BMI_zpliku
             BmiResultGenerator.SaveBmiResultToFile(user);
 
         }
+
+        public void AssignTheSexFromConsole(UserTemplate user)
+        {
+
+            double number;
+
+            do
+            {
+                Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceSexAssignment);
+                Double.TryParse(Console.ReadLine(), out number);
+                if (number != 1 & number != 2)
+                    Console.WriteLine(SharedResources.WrongAnswerFormatOne);
+                else
+                    user.Sex = number;
+            } while (user.Sex == 0);
+        }
+
+        public void AssignTheWeightFromConsole(UserTemplate user)
+        {
+            double number;
+
+            do
+            {
+                Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceWeightAssignment);
+                Double.TryParse(Console.ReadLine(), out number);
+                if (number <= 0)
+                    Console.WriteLine(SharedResources.WrongAnswerFormatTwo);
+                else
+                    user.Weight = number;
+            } while (user.Weight == 0);
+        }
+
+        public void AssignTheHeightFromConsole(UserTemplate user)
+        {
+            double number;
+
+            do
+            {
+                Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceHeightAssignment);
+                Double.TryParse(Console.ReadLine(), out number);
+                if (!(number > 0))
+                    Console.WriteLine(SharedResources.WrongAnswerFormatTwo);
+                else
+                    user.Height = number;
+            } while (user.Height == 0);
+        }
+
+
     }
 }
