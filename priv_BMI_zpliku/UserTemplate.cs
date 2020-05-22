@@ -7,15 +7,15 @@ namespace priv_BMI_zpliku
         
         public double Height { get; set; }
         public double Weight { get; set; }
-        public double Sex { get; set; }
+        public string Sex { get; set; }
         public double Bmi => Weight / Math.Pow(Height, 2);
 
         public string Evaluation
         {
             get
             {
-                //Sex == 1 is men
-                if (Sex == 1)
+                //Sex == m is men
+                if (Sex == "m")
                 {
                     if (Bmi < 18.5)
                         return "Mężczyzno! Masz niedowagę!";
@@ -25,7 +25,7 @@ namespace priv_BMI_zpliku
 
                     else return "Mężczyzno! Masz nadwagę!";
                 }
-                else  //Sex == 2 is women
+                else  //Sex == k is women
                 {
                     if (Bmi < 18.5)
                         return "Kobieto! Masz niedowagę!";

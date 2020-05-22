@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿
 namespace priv_BMI_zpliku
 {
     public static class SharedResources
@@ -13,7 +10,7 @@ namespace priv_BMI_zpliku
 
         public static string ChoiceOfDataSource ="Proszę wybrać sposób pobrania danych: wpisz 1 jeżeli chcesz wprowadzić dane ręcznie lub 2 jeżeli chcesz je wczytać z pliku 'PoliczMojeBmi.txt' ";
 
-        public static string WrongAnswerFormatOne = "Proszę wpisać cyfrę 1 lub 2!";
+        public static string WrongAnswerFormatOne = "Proszę wpisać cyfrę 1 lub 2. (albo 'm' lub 'k' w przypadku deklaracji płci)";
 
         public static string WrongAnswerFormatTwo = "Proszę wpisać wartość dodatnią i stosować ',' zamiast '.'!";
 
@@ -21,7 +18,7 @@ namespace priv_BMI_zpliku
         
         public static string ExpectationOfConsoleDataSource = "Cześć! Wpisz, proszę poniższe wartości. Pamiętaj, żeby używać przecinka zamiast kropki :)";
 
-        public static string ExpectationOfConsoleDataSourceSexAssignment = "Określ płeć.Wpisz 1 jeżeli jesteś mężczyzną lub 2 jeżeli jesteś kobietą i zatwierdź klawiszem Enter";
+        public static string ExpectationOfConsoleDataSourceSexAssignment = "Określ płeć.Wpisz 'm' jeżeli jesteś mężczyzną lub 'k' jeżeli jesteś kobietą i zatwierdź klawiszem Enter";
 
         public static string ExpectationOfConsoleDataSourceWeightAssignment = "Proszę podać wagę w kilogramach [kg] i zatwierdzić klawiszem Enter";
 

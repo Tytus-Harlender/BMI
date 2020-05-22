@@ -83,11 +83,11 @@ namespace priv_BMI_zpliku
                 return;
             }
 
-            Double.TryParse(lines[1], out double result1);
+            string result1 = lines[1].ToLower();
             Double.TryParse(lines[2], out double result2);
             Double.TryParse(lines[3], out double result3);
 
-            if (result1 == 0 || result2 == 0 || result3 == 0)
+            if (result1 == null || result2 == 0 || result3 == 0)
             {
 
                 Console.WriteLine(SharedResources.WrongAnswerFormatThree);
@@ -105,10 +105,10 @@ namespace priv_BMI_zpliku
 
             UserTemplate user = new UserTemplate();
 
-            if (args[0] == "M")
-                user.Sex = 1;
-            else if (args[0] == "K")
-                user.Sex = 2;
+            if (args[0].ToLower() == "m")
+                user.Sex = "m";
+            else if (args[0].ToLower() == "k")
+                user.Sex = "k";
 
             user.Weight = Convert.ToDouble(args[2]);
             user.Height = Convert.ToDouble(args[1]);
@@ -122,17 +122,17 @@ namespace priv_BMI_zpliku
         public void AssignTheSexFromConsole(UserTemplate user)
         {
 
-            double number;
+            string sexLetter;
 
             do
             {
                 Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceSexAssignment);
-                Double.TryParse(Console.ReadLine(), out number);
-                if (number != 1 & number != 2)
+                sexLetter = Console.ReadLine();
+                if (sexLetter.ToLower() != "m" & sexLetter.ToLower() != "k")
                     Console.WriteLine(SharedResources.WrongAnswerFormatOne);
                 else
-                    user.Sex = number;
-            } while (user.Sex == 0);
+                    user.Sex = sexLetter;
+            } while (user.Sex == null);
         }
 
         public void AssignTheWeightFromConsole(UserTemplate user)

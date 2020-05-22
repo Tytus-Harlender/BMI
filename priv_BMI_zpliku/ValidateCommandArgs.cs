@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace priv_BMI_zpliku
 {
@@ -14,7 +12,7 @@ namespace priv_BMI_zpliku
 
         public static bool DoesFirstParamIsManOrWoman(string [] args)
         {
-            return args[0].ToUpper() == "M" || args[0].ToUpper() =="K";
+            return args[0].ToLower() == "m" || args[0].ToLower() =="k";
 
         }
 
