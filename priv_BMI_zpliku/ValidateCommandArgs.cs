@@ -16,9 +16,9 @@ namespace priv_BMI_zpliku
 
         }
 
-        public static bool DoesThisParamContainsDoubleValue(string args)
+        public static bool DoesThisParamContainsProperDoubleValue(string args)
         {
-            return Double.TryParse(args, out double result);
+            return Double.TryParse(args, out double result) && result >0;
         }
     }
 }

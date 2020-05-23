@@ -52,8 +52,8 @@ namespace priv_BMI_zpliku
         {
             return Validator.DoesItContainsThreeArguments(args) &&
                    Validator.DoesFirstParamIsManOrWoman(args) &&
-                   Validator.DoesThisParamContainsDoubleValue(args[1]) &&
-                   Validator.DoesThisParamContainsDoubleValue(args[2]);
+                   Validator.DoesThisParamContainsProperDoubleValue(args[1]) &&
+                   Validator.DoesThisParamContainsProperDoubleValue(args[2]);
         }
 
         public void CalculateFromConsole()
@@ -158,7 +158,7 @@ namespace priv_BMI_zpliku
             {
                 Console.WriteLine(SharedResources.ExpectationOfConsoleDataSourceHeightAssignment);
                 Double.TryParse(Console.ReadLine(), out number);
-                if (!(number > 0))
+                if (number <= 0)
                     Console.WriteLine(SharedResources.WrongAnswerFormatTwo);
                 else
                     user.Height = number;
